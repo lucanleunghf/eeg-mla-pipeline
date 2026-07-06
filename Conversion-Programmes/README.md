@@ -1,6 +1,8 @@
 # EEG Data Conversion Programmes
 
-A collection of Jupyter Notebook tools for converting EEG data between different formats. These programmes were developed as part of the Closed-Loop Brain Computer Interface for Modulation of Cognitive Functions project at Imperial College London.
+A collection of Python tools for converting EEG data between different formats. These programmes were developed as part of the Closed-Loop Brain Computer Interface for Modulation of Cognitive Functions project at Imperial College London.
+
+**Available as both Python scripts (.py) and Jupyter Notebooks (.ipynb)**
 
 ---
 
@@ -22,7 +24,7 @@ If you use these conversion tools in your research, please cite:
   author = {Leung, Lucan},
   title = {EEG Data Conversion Programmes},
   year = {2024-2025},
-  url = {https://github.com/lucanleunghf/EEG-MLA-Conversion-Programmes-Pipeline/tree/main/Conversion-Porgrams},
+  url = {https://github.com/lucanleunghf/EEG-MLA-Conversion-Programmes-Pipeline/tree/main/Conversion-Programmes},
   note = {Developed during MRes research at Imperial College London}
 }
 ```
@@ -31,12 +33,22 @@ If you use these conversion tools in your research, please cite:
 
 ## Overview
 
-This repository contains four Jupyter Notebook tools for EEG data conversion:
+This repository contains three Python tools for EEG data conversion, available as both command-line scripts and Jupyter Notebooks:
 
-1. **EDF to ASCII Converter (Setting 1)** - Converts EDF files to MC-Stimulus ASCII format (60-second window)
-2. **EDF to ASCII Converter (Setting 2)** - Converts EDF files to MC-Stimulus ASCII format (30-second window)
-3. **EDF to CSV Converter** - Extracts middle 60 seconds from EDF files to CSV format
-4. **BrainFlow Merger** - Merges multiple OpenBCI/BrainFlow files into unified 8/12/16-channel output
+1. **EDF to ASCII Converter** - Converts EDF files to MC-Stimulus ASCII format (60-second window)
+2. **EDF to CSV Converter** - Extracts middle 60 seconds from EDF files to CSV format
+3. **BrainFlow Channel Merger** - Merges multiple OpenBCI/BrainFlow files into unified 8/12/16-channel output
+
+**Quick Start:**
+```bash
+# Using Python scripts (recommended)
+python 01_EDF_to_ASCII_Converter.py --dir /path/to/edf/files
+python 02_EDF_to_CSV_Converter.py --file /path/to/file.edf
+python 03_BrainFlow_Channel_Merger.py --dir /path/to/brainflow/files --channels 8
+
+# Or use Jupyter Notebooks for interactive use
+jupyter notebook 01_EDF_to_ASCII_Converter.ipynb
+```
 
 ---
 
@@ -44,7 +56,7 @@ This repository contains four Jupyter Notebook tools for EEG data conversion:
 
 ### 1. EDF to ASCII Converter
 
-**File:** `01_EDF_to_ASCII_Converter.ipynb`
+**Files:** `01_EDF_to_ASCII_Converter.py` (script) | `01_EDF_to_ASCII_Converter.ipynb` (notebook)
 
 **Purpose:** Converts EDF EEG files to ASCII format compatible with Multi Channel Systems MC-Stimulus software, extracting a 60-second time window (90-150 seconds from recording start).
 
@@ -54,6 +66,7 @@ This repository contains four Jupyter Notebook tools for EEG data conversion:
 - Time window extraction (90-150 seconds)
 - Voltage conversion (Volts to microVolts)
 - MC-Stimulus compliant header format
+- Command-line interface with optional GUI file selection
 
 **Input:** `.edf` files (European Data Format)
 
@@ -68,7 +81,19 @@ output mode: voltage
 format: 4
 ```
 
-**Usage:**
+**Usage (Command Line):**
+```bash
+# Interactive mode (GUI file dialog)
+python 01_EDF_to_ASCII_Converter.py
+
+# Specify directory
+python 01_EDF_to_ASCII_Converter.py --dir /path/to/edf/files
+
+# With amplitude multiplication factor
+python 01_EDF_to_ASCII_Converter.py --dir /path/to/edf/files --factor 2
+```
+
+**Usage (Notebook):**
 1. Open the notebook in Jupyter
 2. Run all cells
 3. Select directory containing EDF files via GUI dialog
@@ -86,33 +111,36 @@ format: 4
 
 ---
 
-### 2. EDF to ASCII Converter (30s Window) [Archive]
+### 2. EDF to CSV Converter
 
-**File:** `archive/01b_EDF_to_ASCII_Converter_30s.ipynb`
-
-**Purpose:** Alternative version that extracts a 30-second time window (30-60 seconds from recording start).
-
-**Status:** Archived - not included in main distribution. Available in `archive/` folder for reference.
-
----
-
-### 3. EDF to CSV Converter
-
-**File:** `02_EDF_to_CSV_Converter.ipynb`
+**Files:** `02_EDF_to_CSV_Converter.py` (script) | `02_EDF_to_CSV_Converter.ipynb` (notebook)
 
 **Purpose:** Converts EDF files to CSV format, extracting the middle 60 seconds of the recording.
 
 **Features:**
-- Automated conversion (no user interaction)
+- Automated conversion (no user interaction required)
 - Extracts middle 60-second window
 - Preserves all EEG channels
 - Time-stamped output
+- Command-line interface with optional GUI file selection
 
-**Input:** Single `.edf` file (filename must be modified in code)
+**Input:** Single `.edf` file
 
 **Output:** `.csv` file with columns: `Time,EEG Fp1,EEG Fp2,...`
 
-**Usage:**
+**Usage (Command Line):**
+```bash
+# Interactive mode (GUI file dialog)
+python 02_EDF_to_CSV_Converter.py
+
+# Specify input file
+python 02_EDF_to_CSV_Converter.py --file /path/to/Subject00_1.edf
+
+# Specify output directory
+python 02_EDF_to_CSV_Converter.py --file /path/to/file.edf --output /output/dir
+```
+
+**Usage (Notebook):**
 1. Edit the filename in the notebook (currently hardcoded as `Subject00_1.edf`)
 2. Run all cells
 3. Output saved as `<filename>_middle60s.csv`
@@ -126,9 +154,9 @@ Time,EEG Fp1,EEG Fp2,EEG F3,...
 
 ---
 
-### 4. BrainFlow Channel Merger
+### 3. BrainFlow Channel Merger
 
-**File:** `03_BrainFlow_Channel_Merger.ipynb`
+**Files:** `03_BrainFlow_Channel_Merger.py` (script) | `03_BrainFlow_Channel_Merger.ipynb` (notebook)
 
 **Purpose:** Merges multiple OpenBCI/BrainFlow raw data files into a single unified file with configurable channel count (8, 12, or 16 channels).
 
@@ -142,6 +170,7 @@ Time,EEG Fp1,EEG Fp2,EEG F3,...
 - Automatic file synchronization (aligns by sample index)
 - Preview plot generation
 - Dual output format (CSV and BrainFlow TXT)
+- Command-line interface with full customization
 
 **Input:** Multiple `OpenBCI-RAW-*.txt` files
 
@@ -149,7 +178,22 @@ Time,EEG Fp1,EEG Fp2,EEG F3,...
 - `Merged_BrainFlow_{n}ch.csv`
 - `Merged_BrainFlow_{n}ch.txt`
 
-**Usage:**
+**Usage (Command Line):**
+```bash
+# Interactive mode (default data/ directory)
+python 03_BrainFlow_Channel_Merger.py
+
+# Specify input directory and channels
+python 03_BrainFlow_Channel_Merger.py --dir /path/to/files --channels 12
+
+# With trimming and no plot
+python 03_BrainFlow_Channel_Merger.py --dir data --channels 8 --trim 5 --no-plot
+
+# Specify output directory
+python 03_BrainFlow_Channel_Merger.py --dir data --channels 8 --output /output/dir
+```
+
+**Usage (Notebook):**
 1. Place OpenBCI raw files in `data/` directory (or modify path in notebook)
 2. Run all cells
 3. Enter desired output channel count (8, 12, or 16)
@@ -174,8 +218,6 @@ Channel 1 -> Map to position: 2
 Apply filter to channel 1? (b)andpass, (a)ttenuate, (n)one: n
 ...
 ```
-
-**Known Issue:** The `export_as_brainflow()` function is referenced but not defined in the notebook. You may need to implement this function or modify the export section.
 
 ---
 
@@ -222,13 +264,16 @@ brew install python-tk
 ## Directory Structure
 
 ```
-Conversion-Porgrams/
-├── 01_EDF_to_ASCII_Converter.ipynb
-├── 02_EDF_to_CSV_Converter.ipynb
-├── 03_BrainFlow_Channel_Merger.ipynb
-├── README.md                    # This file
-├── data/                        # Place input files here (BrainFlow Merger)
-└── archive/                     # Archived tools (not for distribution)
+Conversion-Programmes/
+├── 01_EDF_to_ASCII_Converter.py       # Python script
+├── 01_EDF_to_ASCII_Converter.ipynb    # Jupyter Notebook
+├── 02_EDF_to_CSV_Converter.py         # Python script
+├── 02_EDF_to_CSV_Converter.ipynb      # Jupyter Notebook
+├── 03_BrainFlow_Channel_Merger.py     # Python script
+├── 03_BrainFlow_Channel_Merger.ipynb  # Jupyter Notebook
+├── README.md                          # This file
+├── data/                              # Place input files here (BrainFlow Merger)
+└── archive/                           # Archived tools (not for distribution)
     └── 01b_EDF_to_ASCII_Converter_30s.ipynb
 ```
 
@@ -296,19 +341,16 @@ pip install mne
 Install python-tk for your system (see Installation section)
 
 **3. "File not found" (BrainFlow Merger)**
-Ensure OpenBCI raw files are in the `data/` directory or update the path in the notebook
+Ensure OpenBCI raw files are in the `data/` directory or update the path using `--dir` flag
 
-**4. "export_as_brainflow() is not defined"**
-This is a known issue in the BrainFlow Merger. The function is referenced but not implemented. You can:
-- Comment out the export line
-- Implement the function based on your BrainFlow format requirements
-- Use the CSV output instead
-
-**5. "Index out of range" during channel mapping**
+**4. "Index out of range" during channel mapping**
 Ensure you are using 1-based indexing for EDF channels (as displayed in the GUI)
 
-**6. EDF file fails to load**
+**5. EDF file fails to load**
 Verify the EDF file is not corrupted and is compatible with MNE-Python
+
+**6. "No OpenBCI-RAW-*.txt files found"**
+Check that your files match the pattern `OpenBCI-RAW-*.txt` or specify a different directory with `--dir`
 
 ---
 
