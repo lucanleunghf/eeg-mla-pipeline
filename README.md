@@ -39,7 +39,7 @@ Raw EEG Data → Conversion Tools → Processed Data → MLA Pipelines → Class
 
 ### 1. **Conversion Programmes** (`Conversion-Programmes/`)
 
-Tools for converting EEG data between different formats:
+Tools for converting EEG data between different formats (available as both Python scripts and Jupyter Notebooks):
 - EDF to ASCII (MC-Stimulus format, 60s window)
 - EDF to CSV (middle 60s extraction)
 - BrainFlow Channel Merger (8/12/16 channel output)
@@ -101,9 +101,12 @@ EEG-MLA-Conversion-Programmes-Pipeline/
 │
 ├── Conversion-Programmes/     # Data conversion tools (publishable)
 │   ├── README.md               # Conversion tools documentation
-│   ├── 01_EDF_to_ASCII_Converter.ipynb
-│   ├── 02_EDF_to_CSV_Converter.ipynb
-│   └── 03_BrainFlow_Channel_Merger.ipynb
+│   ├── 01_EDF_to_ASCII_Converter.py      # Python script
+│   ├── 01_EDF_to_ASCII_Converter.ipynb   # Jupyter Notebook
+│   ├── 02_EDF_to_CSV_Converter.py        # Python script
+│   ├── 02_EDF_to_CSV_Converter.ipynb     # Jupyter Notebook
+│   ├── 03_BrainFlow_Channel_Merger.py    # Python script
+│   └── 03_BrainFlow_Channel_Merger.ipynb # Jupyter Notebook
 │
 ├── MLA/                         # Machine Learning Analysis pipelines
 │   ├── README.md               # MLA pipelines documentation
@@ -166,11 +169,11 @@ brew install python-tk
 
 | Tool | File | Input | Output | Purpose |
 |------|------|-------|--------|---------|
-| EDF to ASCII | `01_EDF_to_ASCII_Converter.ipynb` | EDF files | ASCII .dat | MC-Stimulus format (60s window) |
-| EDF to CSV | `02_EDF_to_CSV_Converter.ipynb` | EDF file | CSV | Middle 60s extraction |
-| BrainFlow Merger | `03_BrainFlow_Channel_Merger.ipynb` | Multiple OpenBCI files | CSV/TXT | Channel merging (8/12/16 ch) |
+| EDF to ASCII | `01_EDF_to_ASCII_Converter.py` | EDF files | ASCII .dat | MC-Stimulus format (60s window) |
+| EDF to CSV | `02_EDF_to_CSV_Converter.py` | EDF file | CSV | Middle 60s extraction |
+| BrainFlow Merger | `03_BrainFlow_Channel_Merger.py` | Multiple OpenBCI files | CSV/TXT | Channel merging (8/12/16 ch) |
 
-**Note:** Additional conversion tools are available in the `_archive/` directory for reference.
+**Note:** Both Python scripts (`.py`) and Jupyter Notebooks (`.ipynb`) are provided. Use scripts for command-line automation or notebooks for interactive exploration.
 
 [→ Detailed conversion tool documentation](Conversion-Programmes/README.md)
 
