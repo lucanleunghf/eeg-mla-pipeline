@@ -6,7 +6,7 @@ Complete research software for EEG data processing, from raw data conversion to 
 
 ## Author
 
-**Luca Can Leung**  
+**Lucan Leung**  
 MRes Researcher, Imperial College London  
 Closed-Loop Brain Computer Interface for Modulation of Cognitive Functions Project  
 Development Period: September 2024 - October 2025
@@ -37,7 +37,7 @@ This repository contains two main components that form a complete EEG analysis w
 Raw EEG Data → Conversion Tools → Processed Data → MLA Pipelines → Classification Results
 ```
 
-### 1. **Conversion Programmes** (`Conversion-Porgrams/`)
+### 1. **Conversion Programmes** (`Conversion-Porgrammes/`)
 
 Tools for converting EEG data between different formats:
 - EDF to ASCII (MC-Stimulus format, 60s window)
