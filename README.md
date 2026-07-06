@@ -37,14 +37,14 @@ This repository contains two main components that form a complete EEG analysis w
 Raw EEG Data → Conversion Tools → Processed Data → MLA Pipelines → Classification Results
 ```
 
-### 1. **Conversion Programmes** (`Conversion-Porgrams/`)
+### 1. **Conversion Programmes** (`Conversion-Programmes/`)
 
 Tools for converting EEG data between different formats:
 - EDF to ASCII (MC-Stimulus format, 60s window)
 - EDF to CSV (middle 60s extraction)
 - BrainFlow Channel Merger (8/12/16 channel output)
 
-[→ See Conversion Programmes README for detailed usage](Conversion-Porgrams/README.md)
+[→ See Conversion Programmes README for detailed usage](Conversion-Programmes/README.md)
 
 ### 2. **MLA Pipelines** (`MLA/`)
 
@@ -79,9 +79,9 @@ python -c "import numpy, pandas, scipy, sklearn, mne, brainflow; print('All depe
 ### Workflow
 
 **Step 1: Convert your data** (if needed)
-- Navigate to `Conversion-Porgrams/`
+- Navigate to `Conversion-Programmes/`
 - Use the appropriate converter for your data format
-- See [Conversion Programmes README](Conversion-Porgrams/README.md)
+- See [Conversion Programmes README](Conversion-Programmes/README.md)
 
 **Step 2: Run MLA analysis**
 - Navigate to `MLA/Computational/` (for EDF data) or `MLA/Phantom/` (for BrainFlow data)
@@ -99,7 +99,7 @@ EEG-MLA-Conversion-Programmes-Pipeline/
 ├── requirements.txt             # All Python dependencies
 ├── .gitignore                   # Git ignore rules
 │
-├── Conversion-Porgrams/         # Data conversion tools (publishable)
+├── Conversion-Programmes/     # Data conversion tools (publishable)
 │   ├── README.md               # Conversion tools documentation
 │   ├── 01_EDF_to_ASCII_Converter.ipynb
 │   ├── 02_EDF_to_CSV_Converter.ipynb
@@ -172,7 +172,7 @@ brew install python-tk
 
 **Note:** Additional conversion tools are available in the `_archive/` directory for reference.
 
-[→ Detailed conversion tool documentation](Conversion-Porgrams/README.md)
+[→ Detailed conversion tool documentation](Conversion-Programmes/README.md)
 
 ### MLA Pipelines
 

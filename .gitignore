@@ -41,6 +41,9 @@ ENV/
 _archive/
 **/archive/
 
+# Conversion Programmes archive
+Conversion-Programmes/archive/
+
 # ML outputs (generated visualizations)
 MLA/Computational/outputs/*.png
 MLA/Phantom/outputs/*.png
