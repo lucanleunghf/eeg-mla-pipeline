@@ -6,7 +6,7 @@ A collection of Jupyter Notebook tools for converting EEG data between different
 
 ## Author
 
-**Luca Can Leung**  
+**Lucan Leung**  
 MRes Researcher, Imperial College London  
 Closed-Loop Brain Computer Interface for Modulation of Cognitive Functions Project  
 Development Period: September 2024 - October 2025
@@ -19,7 +19,7 @@ If you use these conversion tools in your research, please cite:
 
 ```bibtex
 @software{eeg_conversion_tools,
-  author = {Leung, Luca Can},
+  author = {Leung, Lucan},
   title = {EEG Data Conversion Programmes},
   year = {2024-2025},
   url = {https://github.com/lucanleunghf/EEG-MLA-Conversion-Programmes-Pipeline/tree/main/Conversion-Porgrams},
@@ -354,6 +354,6 @@ For issues, questions, or contributions, please open an issue on GitHub.
 
 This project is licensed under the MIT License - see the root [LICENSE](../LICENSE) file for details.
 
-**Copyright**: © 2024-2025 Luca Can Leung. All rights reserved.
+**Copyright**: © 2024-2025 Lucan Leung. All rights reserved.
 
 You are free to use, modify, and distribute this software as long as proper attribution is given to the author.

@@ -19,7 +19,7 @@ If you use this software in your research, please cite:
 
 ```bibtex
 @software{eeg_mla_pipeline,
-  author = {Leung, Luca Can},
+  author = {Leung, Lucan},
   title = {EEG Machine Learning Analysis and Conversion Pipeline},
   year = {2024-2025},
   url = {https://github.com/lucanleunghf/EEG-MLA-Conversion-Programmes-Pipeline},
@@ -239,6 +239,6 @@ For issues, questions, or contributions, please open an issue on GitHub.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-**Copyright**: © 2024-2025 Luca Can Leung. All rights reserved.
+**Copyright**: © 2024-2025 Lucan Leung. All rights reserved.
 
 You are free to use, modify, and distribute this software as long as proper attribution is given to the author.

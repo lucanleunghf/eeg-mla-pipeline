@@ -75,4 +75,4 @@ See root `requirements.txt` for all dependencies.
 
 ## License
 
-MIT License - Copyright © 2024-2025 Luca Can Leung
+MIT License - Copyright © 2024-2025 Lucan Leung
