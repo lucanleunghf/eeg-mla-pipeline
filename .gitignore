@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Archive directory (not for publishing)
+_archive/
+**/archive/
+
+# ML outputs (generated visualizations)
+MLA/Computational/outputs/*.png
+MLA/Phantom/outputs/*.png
+*.png
+!README.md
+
+# Data files (not committing raw data)
+MLA/Computational/data/*.edf
+MLA/Phantom/data_brainflow/*.csv
+MLA/Phantom/data_brainflow/*.txt
+Conversion-Porgrams/data/*
+
+# Large files
+*.h5
+*.mat
+*.fif
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# macOS
+.DS_Store
