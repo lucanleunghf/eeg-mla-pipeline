@@ -6,7 +6,7 @@ Complete research software for EEG data processing, from raw data conversion to 
 
 ## Author
 
-**Luca Can Leung**  
+**Lucan Leung**  
 MRes Researcher, Imperial College London  
 Closed-Loop Brain Computer Interface for Modulation of Cognitive Functions Project  
 Development Period: September 2024 - October 2025
