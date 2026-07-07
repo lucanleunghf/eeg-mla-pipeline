@@ -24,16 +24,16 @@ This directory contains two specialized MLA pipelines developed for different ex
 
 ### Phantom-BrainFlow Pipeline: Physical Phantom Head Experiments
 
-**Purpose:** Processes EEG data collected from physical phantom head experiments using Emotiv Epoc+ headset and BrainFlow acquisition system.
+**Purpose:** Processes EEG data collected from physical phantom head experiments using in-house developed EEG cBCI wearables and BrainFlow acquisition system.
 
 **Characteristics:**
-- Uses data from physical spinoff technology (phantom head setup)
+- Uses data from physical phantom head setup with custom cBCI hardware
 - Real-time EEG acquisition via BrainFlow API
-- Validates ML pipelines on hardware-derived signals
-- Tests generalization to non-ideal, noisy data
+- Validates ML pipelines on hardware-derived signals from in-house developed wearables
+- Tests generalization to non-ideal, noisy data from prototype devices
 - Stratified K-Fold CV for balanced evaluation
 
-**Research Context:** This pipeline validates the classification approach on data from our physical phantom head experimental setup, demonstrating the practical applicability of the ML methods to hardware-collected EEG signals. The phantom head serves as a controlled testbed for the closed-loop BCI system.
+**Research Context:** This pipeline validates the classification approach on data from our physical phantom head experimental setup, demonstrating the practical applicability of the ML methods to EEG signals collected via our in-house developed closed-loop BCI (cBCI) wearable devices. The phantom head serves as a controlled testbed for validating the hardware and ML pipeline integration.
 
 ---
 
@@ -61,7 +61,7 @@ python EEG_MLA_Complete_BrainFlow.py
 
 **Input:** CSV/TXT files in `data_brainflow/` directory  
 **Labeling:** Files with "cog" = Cognitive (1), others = Non-Cognitive (0)  
-**Source:** Physical phantom head experiments with Emotiv Epoc+ via BrainFlow
+**Source:** Physical phantom head experiments with in-house developed EEG cBCI wearables via BrainFlow
 
 ## Key Features
 
