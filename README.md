@@ -183,7 +183,7 @@ brew install python-tk
 | Pipeline | Data Source | Features | Evaluation |
 |----------|-------------|----------|------------|
 | Simulation-EDF | PhysioNet open-source database | Time, frequency, asymmetry | Leave-One-File-Out CV |
-| Phantom-BrainFlow | In-house EEG cBCI wearables (phantom head) | Time, frequency, asymmetry | Stratified K-Fold CV |
+| Phantom-BrainFlow | Gelatin mock-up head + in-house wearable cBCI | Time, frequency, asymmetry | Stratified K-Fold CV |
 
 [→ Detailed MLA pipeline documentation](MLA/README.md)
 

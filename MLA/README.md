@@ -22,18 +22,20 @@ This directory contains two specialized MLA pipelines developed for different ex
 
 **Research Context:** This pipeline was designed for computational analysis of existing EEG databases, enabling rapid prototyping and validation without the need for physical data collection infrastructure.
 
-### Phantom-BrainFlow Pipeline: Physical Phantom Head Experiments
+### Phantom-BrainFlow Pipeline: Mock-up Head with In-House cBCI Wearables
 
-**Purpose:** Processes EEG data collected from physical phantom head experiments using in-house developed EEG cBCI wearables and BrainFlow acquisition system.
+**Purpose:** Processes EEG data collected through a gelatin-based mock-up head configured with in-house developed parts and technology, where pseudo-EEG signals are transmitted through the head and captured by the in-house developed wearable cBCI device.
 
 **Characteristics:**
-- Uses data from physical phantom head setup with custom cBCI hardware
-- Real-time EEG acquisition via BrainFlow API
-- Validates ML pipelines on hardware-derived signals from in-house developed wearables
-- Tests generalization to non-ideal, noisy data from prototype devices
+- Gelatin-based mock-up head simulating human scalp/skull properties
+- In-house developed parts and technology for signal transmission
+- Pseudo-EEG data fed through mock-up head to simulate realistic signal propagation
+- Data captured by in-house developed wearable cBCI device via BrainFlow API
+- Validates ML pipelines on hardware-derived signals from prototype wearable
+- Tests signal integrity through mock-up head medium and wearable acquisition
 - Stratified K-Fold CV for balanced evaluation
 
-**Research Context:** This pipeline validates the classification approach on data from our physical phantom head experimental setup, demonstrating the practical applicability of the ML methods to EEG signals collected via our in-house developed closed-loop BCI (cBCI) wearable devices. The phantom head serves as a controlled testbed for validating the hardware and ML pipeline integration.
+**Research Context:** This pipeline validates the complete signal chain: pseudo-EEG signals → gelatin mock-up head (simulating human tissue) → in-house wearable cBCI device → BrainFlow acquisition → ML classification. The mock-up head serves as a controlled testbed to validate that our in-house developed wearable can successfully acquire and classify EEG-like signals after they pass through a tissue-simulating medium, demonstrating the viability of the complete hardware-software integration before human trials.
 
 ---
 
@@ -52,7 +54,7 @@ python EEG_MLA_Complete_EDF.py
 **Labeling:** `*_1.edf` = Non-Cognitive (0), `*_2.edf` = Cognitive (1)  
 **Source:** Open-source EEG databases (e.g., physionet.org)
 
-### Phantom-BrainFlow Pipeline (Physical Phantom Head)
+### Phantom-BrainFlow Pipeline (Mock-up Head with In-House Wearable)
 
 ```bash
 cd MLA/Phantom-BrainFlow
@@ -61,7 +63,7 @@ python EEG_MLA_Complete_BrainFlow.py
 
 **Input:** CSV/TXT files in `data_brainflow/` directory  
 **Labeling:** Files with "cog" = Cognitive (1), others = Non-Cognitive (0)  
-**Source:** Physical phantom head experiments with in-house developed EEG cBCI wearables via BrainFlow
+**Source:** Gelatin-based mock-up head with in-house parts; pseudo-EEG signals captured by in-house wearable cBCI device
 
 ## Key Features
 
