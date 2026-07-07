@@ -4,34 +4,64 @@ Complete machine learning pipelines for EEG signal classification with proper ev
 
 ## Overview
 
-This directory contains two specialized MLA pipelines:
+This directory contains two specialized MLA pipelines developed for different experimental setups:
 
-1. **EDF Pipeline** (`Computational/`) - For real EEG data from Emotiv Epoc+
-2. **BrainFlow Pipeline** (`Phantom/`) - For phantom/Emotiv data from BrainFlow
+1. **Simulation-EDF Pipeline** (`Simulation-EDF/`) - For open-source EEG database analysis
+2. **Phantom-BrainFlow Pipeline** (`Phantom-BrainFlow/`) - For physical phantom head experiments
+
+### Simulation-EDF Pipeline: Open-Source Database Analysis
+
+**Purpose:** Analyzes EEG data from open-source databases (e.g., physionet.org) using computational simulation methods.
+
+**Characteristics:**
+- Uses publicly available EDF-format EEG recordings
+- No physical data collection required
+- Ideal for algorithm development and validation
+- Large sample sizes from existing datasets
+- Leave-One-File-Out CV for subject-independent evaluation
+
+**Research Context:** This pipeline was designed for computational analysis of existing EEG databases, enabling rapid prototyping and validation without the need for physical data collection infrastructure.
+
+### Phantom-BrainFlow Pipeline: Physical Phantom Head Experiments
+
+**Purpose:** Processes EEG data collected from physical phantom head experiments using Emotiv Epoc+ headset and BrainFlow acquisition system.
+
+**Characteristics:**
+- Uses data from physical spinoff technology (phantom head setup)
+- Real-time EEG acquisition via BrainFlow API
+- Validates ML pipelines on hardware-derived signals
+- Tests generalization to non-ideal, noisy data
+- Stratified K-Fold CV for balanced evaluation
+
+**Research Context:** This pipeline validates the classification approach on data from our physical phantom head experimental setup, demonstrating the practical applicability of the ML methods to hardware-collected EEG signals. The phantom head serves as a controlled testbed for the closed-loop BCI system.
+
+---
 
 Both pipelines address critical flaws in common EEG-ML workflows, particularly data leakage from improper train/test splitting.
 
 ## Quick Usage
 
-### EDF Pipeline (Real EEG)
+### Simulation-EDF Pipeline (Open-Source Database)
 
 ```bash
-cd MLA/Computational
+cd MLA/Simulation-EDF
 python EEG_MLA_Complete_EDF.py
 ```
 
 **Input:** EDF files in `data/` directory  
-**Labeling:** `*_1.edf` = Non-Cognitive (0), `*_2.edf` = Cognitive (1)
+**Labeling:** `*_1.edf` = Non-Cognitive (0), `*_2.edf` = Cognitive (1)  
+**Source:** Open-source EEG databases (e.g., physionet.org)
 
-### BrainFlow Pipeline (Phantom Data)
+### Phantom-BrainFlow Pipeline (Physical Phantom Head)
 
 ```bash
-cd MLA/Phantom
+cd MLA/Phantom-BrainFlow
 python EEG_MLA_Complete_BrainFlow.py
 ```
 
 **Input:** CSV/TXT files in `data_brainflow/` directory  
-**Labeling:** Files with "cog" = Cognitive (1), others = Non-Cognitive (0)
+**Labeling:** Files with "cog" = Cognitive (1), others = Non-Cognitive (0)  
+**Source:** Physical phantom head experiments with Emotiv Epoc+ via BrainFlow
 
 ## Key Features
 
@@ -43,8 +73,8 @@ python EEG_MLA_Complete_BrainFlow.py
 
 ## Evaluation Methods
 
-- **EDF Pipeline**: Leave-One-File-Out Cross-Validation (LOFO CV)
-- **BrainFlow Pipeline**: Stratified K-Fold Cross-Validation
+- **Simulation-EDF Pipeline**: Leave-One-File-Out Cross-Validation (LOFO CV) - ensures subject independence
+- **Phantom-BrainFlow Pipeline**: Stratified K-Fold Cross-Validation - balanced evaluation for controlled experiments
 
 ## Outputs
 
@@ -56,8 +86,8 @@ Each pipeline generates:
 
 ## Documentation
 
-- [EDF Pipeline Details](Computational/EEG_MLA_Complete_EDF.py)
-- [BrainFlow Pipeline Details](Phantom/EEG_MLA_Complete_BrainFlow.py)
+- [Simulation-EDF Pipeline Details](Simulation-EDF/EEG_MLA_Complete_EDF.py)
+- [Phantom-BrainFlow Pipeline Details](Phantom-BrainFlow/EEG_MLA_Complete_BrainFlow.py)
 - Interactive notebooks: `EEG_MLA_Complete_EDF.ipynb` and `EEG_MLA_Complete_BrainFlow.ipynb`
 
 ## Configuration

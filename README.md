@@ -49,8 +49,8 @@ Tools for converting EEG data between different formats (available as both Pytho
 ### 2. **MLA Pipelines** (`MLA/`)
 
 Complete machine learning pipelines for EEG classification:
-- **EDF Pipeline** - Real EEG data with Leave-One-File-Out CV
-- **BrainFlow Pipeline** - Phantom/Emotiv data with augmentation
+- **Simulation-EDF Pipeline** - Open-source database analysis with Leave-One-File-Out CV
+- **Phantom-BrainFlow Pipeline** - Physical phantom head experiments with BrainFlow data
 
 [→ See MLA Pipelines README for detailed usage](MLA/README.md)
 
@@ -84,7 +84,8 @@ python -c "import numpy, pandas, scipy, sklearn, mne, brainflow; print('All depe
 - See [Conversion Programmes README](Conversion-Programmes/README.md)
 
 **Step 2: Run MLA analysis**
-- Navigate to `MLA/Computational/` (for EDF data) or `MLA/Phantom/` (for BrainFlow data)
+- Navigate to `MLA/Simulation-EDF/` (for open-source database EDF data)
+- Navigate to `MLA/Phantom-BrainFlow/` (for physical phantom head BrainFlow data)
 - Run the pipeline script or notebook
 - See [MLA Pipelines README](MLA/README.md)
 
@@ -110,13 +111,13 @@ EEG-MLA-Conversion-Programmes-Pipeline/
 │
 ├── MLA/                         # Machine Learning Analysis pipelines
 │   ├── README.md               # MLA pipelines documentation
-│   ├── Computational/          # EDF pipeline for real EEG data
+│   ├── Simulation-EDF/         # Open-source database analysis pipeline
 │   │   ├── EEG_MLA_Complete_EDF.py
 │   │   ├── EEG_MLA_Complete_EDF.ipynb
 │   │   ├── data/               # Place EDF files here (not committed)
 │   │   └── outputs/            # Generated visualizations (not committed)
 │   │
-│   └── Phantom/                # BrainFlow pipeline for phantom data
+│   └── Phantom-BrainFlow/      # Physical phantom head experiments pipeline
 │       ├── EEG_MLA_Complete_BrainFlow.py
 │       ├── EEG_MLA_Complete_BrainFlow.ipynb
 │       ├── data_brainflow/     # Place BrainFlow files here (not committed)
@@ -179,10 +180,10 @@ brew install python-tk
 
 ### MLA Pipelines
 
-| Pipeline | Data Type | Features | Evaluation |
-|----------|-----------|----------|------------|
-| EDF Pipeline | Real EEG (EDF) | Time, frequency, asymmetry | Leave-One-File-Out CV |
-| BrainFlow Pipeline | Phantom/Emotiv | Time, frequency, asymmetry | Stratified K-Fold CV |
+| Pipeline | Data Source | Features | Evaluation |
+|----------|-------------|----------|------------|
+| Simulation-EDF | Open-source databases (e.g., physionet.org) | Time, frequency, asymmetry | Leave-One-File-Out CV |
+| Phantom-BrainFlow | Physical phantom head (Emotiv Epoc+) | Time, frequency, asymmetry | Stratified K-Fold CV |
 
 [→ Detailed MLA pipeline documentation](MLA/README.md)
 
