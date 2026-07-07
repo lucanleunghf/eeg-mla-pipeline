@@ -45,16 +45,16 @@ _archive/
 Conversion-Programmes/archive/
 
 # ML outputs (generated visualizations)
-MLA/Computational/outputs/*.png
-MLA/Phantom/outputs/*.png
+MLA/Simulation-EDF/outputs/*.png
+MLA/Phantom-BrainFlow/outputs/*.png
 *.png
 !README.md
 
 # Data files (not committing raw data)
-MLA/Computational/data/*.edf
-MLA/Phantom/data_brainflow/*.csv
-MLA/Phantom/data_brainflow/*.txt
-Conversion-Porgrams/data/*
+MLA/Simulation-EDF/data/*.edf
+MLA/Phantom-BrainFlow/data_brainflow/*.csv
+MLA/Phantom-BrainFlow/data_brainflow/*.txt
+Conversion-Programmes/data/*
 
 # Large files
 *.h5
